@@ -32,10 +32,10 @@ public class App {
     public static void main(String[] args) {
         String pubTopic = "/iot/device";
         String subTopic = "/iot/device";
-        String content      = "{\"id\":11, \"packet_no\":126, \"temperature\":30, \"humidity\":60, \"tds\":1100, \"pH\":5.0}";
-        int qos             = 2;
-        String broker       = "tcp://broker.hivemq.com:1883";
-        String clientId     = "30c019a2-5d1a-446a-a0b9-956e4b422157";
+        String content  = "{\"id\":11, \"packet_no\":126, \"temperature\":30, \"humidity\":60, \"tds\":1100, \"pH\":5.0}";
+        int qos = 2;
+        String broker = "tcp://broker.hivemq.com:1883";
+        String clientId = "30c019a2-5d1a-446a-a0b9-956e4b422157";
         MemoryPersistence persistence = new MemoryPersistence();
 
         try {
@@ -52,7 +52,7 @@ public class App {
             sampleClient.subscribe(subTopic, qos);
             sampleClient.setCallback(new OnMessageCallback());
 
-            // Publish messaget to topic
+            // Publish message to topic
             System.out.println("Publishing message: "+ content + " to topic: " + pubTopic);
             MqttMessage message = new MqttMessage(content.getBytes());
             message.setQos(qos);
